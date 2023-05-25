@@ -14,9 +14,9 @@ The project contains the following files and directories:
 ## Requirements
 
 - Python 3.x
-- pandas library
-- numpy library
-- matplotlib library
+- pandas 1.2.4
+- numpy 1.23.5
+- matplotlib 3.5.1
 
 ## Usage
 
@@ -49,10 +49,10 @@ The dataset was orginally sourced from Kaggle and is availible for download [her
 
 After training the model for 20,000 iterations with an initial learning rate of 2.0, and momentum coeffient of 0.9, the model achived a Mean Percent Difference of 29.6% whe compared to true values in the training set and 38.7% for the test set(as of 05/25/2023)
 <div>
-<img src="https://i.imgur.com/iZeOb75.png" width="320" height="240">
-<img src="https://i.imgur.com/sptcKY9.png" width="320" height="240">
-<img src="https://i.imgur.com/E59VrmH.png" width="320" height="240">
-<img src="https://i.imgur.com/7jTHEmK.png" width="320" height="240">
+<img src="https://i.imgur.com/iZeOb75.png" width="467" height="350">
+<img src="https://i.imgur.com/sptcKY9.png" width="467" height="350">
+<img src="https://i.imgur.com/E59VrmH.png" width="467" height="350">
+<img src="https://i.imgur.com/7jTHEmK.png" width="467" height="350">
 </div>
 
 ## Contributing
