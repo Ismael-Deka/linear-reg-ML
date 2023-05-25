@@ -1,0 +1,5 @@
+pylintrc
+/.vscode
+/pickle
+/results
+/__pycache__
