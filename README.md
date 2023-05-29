@@ -47,12 +47,12 @@ The dataset was orginally sourced from Kaggle and is availible for download [her
 
 ## Results
 
-After training the model for 20,000 iterations with an initial learning rate of 2.0, and momentum coeffient of 0.9, the model achived a Mean Percent Difference of 29.6% whe compared to true values in the training set and 38.7% for the test set(as of 05/25/2023)
+After training the model for 50 iterations with an initial learning rate of 2.0, and momentum coeffient of 0.9, the model achived a Mean Percent Difference of 28.9% when compared to true values in the training set and 27.1% for the test set(as of 05/29/2023)
 <div>
-<img src="https://i.imgur.com/iZeOb75.png" width="467" height="350">
-<img src="https://i.imgur.com/sptcKY9.png" width="467" height="350">
-<img src="https://i.imgur.com/E59VrmH.png" width="467" height="350">
-<img src="https://i.imgur.com/7jTHEmK.png" width="467" height="350">
+<img src="https://i.imgur.com/cGf9n9v.png" width="467" height="350">
+<img src="https://i.imgur.com/AZZD3ON.png" width="467" height="350">
+<img src="https://i.imgur.com/iGYKzLF.png" width="467" height="350">
+<img src="https://i.imgur.com/Ngym95C.png" width="467" height="350">
 </div>
 
 ## Contributing
