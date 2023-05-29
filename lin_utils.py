@@ -113,7 +113,7 @@ def plot_history(history, title):
 
     plt.clf()
 
-def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_iterations=20000):
+def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_iterations=50):
 
     """
     Trains a linear regression model using gradient descent.
@@ -124,7 +124,7 @@ def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_ite
         n_features (int): Number of input features.
         learning_rate (float): Learning rate for gradient descent (default=2.0).
         momentum (float): Momentum value for gradient descent (default=0.9).
-        num_iterations (int): Maximum number of training iterations (default=20000).
+        num_iterations (int): Maximum number of training iterations (default=50).
 
     Returns:
         tuple: Tuple of trained weights and bias term.
@@ -162,6 +162,8 @@ def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_ite
 
         y_pred = X_train @ weights + bias
 
+        
+
         cost = mean_squared_error(y_train, y_pred)
 
         mean_percent_diff = ((y_pred-y_train)/y_train*100).abs().mean()
@@ -176,8 +178,12 @@ def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_ite
 
             learning_rate -= learning_rate_decay
             continue
+        
+        mean_percent_diff = (((y_pred-y_train)/y_train)*100).abs().mean()
+            
         print(f"Iteration: {iteration}")
         print(f"Learn rate: {learning_rate}")
+        print(f"Mean Percent Difference: {mean_percent_diff:.2f}%")
         print(f"Cost: {cost}")
         print(f"Weights: {weights}")
         print(f"Bias: {bias}")
@@ -188,11 +194,9 @@ def train(X_train, y_train, n_features, learning_rate=2.0, momentum=0.9, num_ite
         iteration += 1
 
     y_pred = y_pred.clip(upper=999999)
-    mean_percent_diff = ((y_pred-y_train)/y_train*100).abs().mean()
-
-    print(f"Weights: {weights}")
+    print(f"\n\nWeights: {weights}")
     print(f"Bias: {bias}")
-    print(f"Mean Percent Difference: {mean_percent_diff}")
+    print(f"Mean Percent Difference: {mean_percent_diff:.2f}%")
 
     if os.path.exists("results/training") is not True:
         os.makedirs("results/training")

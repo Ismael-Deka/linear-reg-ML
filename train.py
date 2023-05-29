@@ -29,19 +29,26 @@ df = pd.read_csv("data/data.csv")
 
 df = df.drop(df[df['price'] == 0.0].index) # Remove rows where home has no price
 
+df= df.sample(frac=1).reset_index(drop=True)
+
+df['price'] = df['price'].where(df['price'] <= 1000000, 999999) # Remove outliers
+
+# Calculate average price for each 'statezip'
+avg_prices = df.groupby('statezip')['price'].mean()
+
+# Assign the average prices to the corresponding rows in 'df'
+df['avgprice'] = df['statezip'].map(avg_prices)
+
 rows = df.shape[0]
 
 train_split = int(rows * 0.80)
 test_split = int(rows * 0.80) + 1
 
-X_train = df[['sqft_lot', 'sqft_living', 'bathrooms', 'bedrooms', 'condition']].loc[:train_split]
+X_train = df[['sqft_lot', 'sqft_living', 'bathrooms', 'bedrooms', 'condition', 'avgprice']].loc[:train_split]
 y_train = df['price'].loc[:train_split]
-X_test = df[['sqft_lot', 'sqft_living', 'bathrooms', 'bedrooms', 'condition']].loc[test_split:]
+X_test = df[['sqft_lot', 'sqft_living', 'bathrooms', 'bedrooms', 'condition', 'avgprice']].loc[test_split:]
 y_test = df['price'].loc[test_split:]
 
-
-y_train = y_train.where(y_train <= 1000000, 999999)  # Remove outliers
-y_test = y_test.where(y_test <= 1000000, 999999)
 
 n_features = X_train.shape[1]
 
